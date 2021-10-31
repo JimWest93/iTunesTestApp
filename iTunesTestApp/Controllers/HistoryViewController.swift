@@ -41,9 +41,11 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let request = searchRequests[indexPath.row].request else { return }
+        CoreDataManager.shared.searchRequestSaver(searchRequest: request)
         let searchVC = tabBarController?.viewControllers?[0] as? SearchViewController
-        searchVC?.fetchAlbums(searchRequest: searchRequests[indexPath.row].request ?? "")
-        searchVC?.searchBar.text = ""
+        searchVC?.fetchAlbums(searchRequest: request)
+        searchVC?.searchBar.text = request
         tabBarController?.selectedIndex = 0
     }
     
