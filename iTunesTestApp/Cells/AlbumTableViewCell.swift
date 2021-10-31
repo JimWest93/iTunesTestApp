@@ -11,7 +11,7 @@ class AlbumTableViewCell: UITableViewCell {
         
         guard let duration = data.trackTimeMillis else { return }
         
-        durationLabel.text = duration.timeString(nanoseconds: duration)
+        durationLabel.text = TimeFormatter.shared.getFormattedDurationString(milliseconds: duration)
         
     }
     

@@ -18,6 +18,8 @@ class APIManager {
             print("Wrong URL")
             return }
         
+        print(url)
+        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
