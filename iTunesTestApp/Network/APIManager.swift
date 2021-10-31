@@ -13,7 +13,7 @@ class APIManager {
     func fetchAlbumsList(searchRequest: String, complition: @escaping ([Results]) -> ()) {
         
         guard let searchString = searchRequest.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)?.lowercased() else { return }
-        let urlString = "https://itunes.apple.com/search?term=\(searchString)&entity=album&attribute=albumTerm"
+        let urlString = "https://itunes.apple.com/search?term=\(searchString)&entity=album"
         guard let url = URL(string: urlString) else {
             print("Wrong URL")
             return }
