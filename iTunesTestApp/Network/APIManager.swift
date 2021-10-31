@@ -10,6 +10,7 @@ class APIManager {
     
     private var imageCache = NSCache<NSString, UIImage>()
     
+    //Получение списка альбомов по запросу, стандартный лимит 50
     func fetchAlbumsList(searchRequest: String, complition: @escaping ([Results]) -> ()) {
         
         guard let searchString = searchRequest.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)?.lowercased() else { return }
@@ -43,6 +44,7 @@ class APIManager {
         
     }
     
+    //Получение списка треков с альбома по ID альбома
     func fetchTracks(collectionID: Int?, complition: @escaping ([Song]) -> ()) {
         
         let urlString: String = {
@@ -77,6 +79,7 @@ class APIManager {
         
     }
     
+    //Получение и кеширование изображений 
     func fetchImage(imageUrl: String?, complition: @escaping (UIImage) -> ()) {
         
         guard let stringURL = imageUrl else { return }
@@ -87,7 +90,7 @@ class APIManager {
             
         } else {
             
-            DispatchQueue.global().async {
+            DispatchQueue.global(qos: .background).async {
                 
                 guard let url = URL(string: stringURL) else { return }
                 

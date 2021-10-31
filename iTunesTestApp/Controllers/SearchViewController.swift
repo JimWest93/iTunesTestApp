@@ -34,10 +34,14 @@ class SearchViewController: UIViewController {
     }
     
     func fetchAlbums(searchRequest: String) {
+        results.removeAll()
+        albumsCollectionView.reloadData()
         APIManager.shared.fetchAlbumsList(searchRequest: searchRequest) { [weak self] results in
             self?.albumsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            self?.results = results.genreSorted()
-            self?.albumsCollectionView.reloadData()
+            self?.results = results.sortAlphabetically()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self?.albumsCollectionView.reloadData()
+            })
         }
     }
     
