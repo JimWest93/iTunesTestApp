@@ -27,7 +27,7 @@ class CoreDataManager {
         
         guard let entity = NSEntityDescription.entity(forEntityName: "SearchRequests", in: context) else { return }
         
-        if searchRequest != "" && !isAlreadySaved { //если такого запроса еще не было, сохраняем
+        if searchRequest != "" && !isAlreadySaved { //если такого запроса еще не было то сохраняем
             
             let request = SearchRequests(entity: entity, insertInto: context)
             
