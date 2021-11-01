@@ -21,7 +21,7 @@
 		11F22E1E272DDF2E008D6042 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F22E1C272DDF2E008D6042 /* LaunchScreen.storyboard */; };
 		11F22E26272DE2EA008D6042 /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E25272DE2EA008D6042 /* AlbumsCollectionViewCell.swift */; };
 		11F22E28272DE643008D6042 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E27272DE643008D6042 /* APIManager.swift */; };
-		11F22E2A272DEB73008D6042 /* AlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E29272DEB73008D6042 /* AlbumData.swift */; };
+		11F22E2A272DEB73008D6042 /* AlbumsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E29272DEB73008D6042 /* AlbumsData.swift */; };
 		11F22E33272E0698008D6042 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E32272E0698008D6042 /* CoreDataManager.swift */; };
 		11F22E35272E0B3C008D6042 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E34272E0B3C008D6042 /* HistoryViewController.swift */; };
 		11F22E37272E0D6D008D6042 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E36272E0D6D008D6042 /* ArrayExtension.swift */; };
@@ -45,7 +45,7 @@
 		11F22E1F272DDF2E008D6042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11F22E25272DE2EA008D6042 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
 		11F22E27272DE643008D6042 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		11F22E29272DEB73008D6042 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
+		11F22E29272DEB73008D6042 /* AlbumsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsData.swift; sourceTree = "<group>"; };
 		11F22E32272E0698008D6042 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		11F22E34272E0B3C008D6042 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		11F22E36272E0D6D008D6042 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		11F22E2B272E061B008D6042 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				11F22E29272DEB73008D6042 /* AlbumData.swift */,
+				11F22E29272DEB73008D6042 /* AlbumsData.swift */,
 				1153C68C272E3861005D0B70 /* SongsData.swift */,
 			);
 			path = Models;
@@ -247,7 +247,7 @@
 				11F22E13272DDF2C008D6042 /* SearchViewController.swift in Sources */,
 				11F22E0F272DDF2C008D6042 /* AppDelegate.swift in Sources */,
 				11F22E11272DDF2C008D6042 /* SceneDelegate.swift in Sources */,
-				11F22E2A272DEB73008D6042 /* AlbumData.swift in Sources */,
+				11F22E2A272DEB73008D6042 /* AlbumsData.swift in Sources */,
 				1153C68D272E3861005D0B70 /* SongsData.swift in Sources */,
 				11F22E37272E0D6D008D6042 /* ArrayExtension.swift in Sources */,
 				11F22E19272DDF2C008D6042 /* iTunesTestApp.xcdatamodeld in Sources */,

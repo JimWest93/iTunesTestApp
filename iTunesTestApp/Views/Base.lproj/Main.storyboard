@@ -25,17 +25,17 @@
                                 <rect key="frame" x="0.0" y="95" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="1ph-0d-rx4">
-                                    <size key="itemSize" width="288" height="77"/>
+                                    <size key="itemSize" width="288" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="4kO-oX-U5E" customClass="AlbumsCollectionViewCell" customModule="iTunesTestApp" customModuleProvider="target">
-                                        <rect key="frame" x="63" y="10" width="288" height="77"/>
+                                        <rect key="frame" x="63" y="10" width="288" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Fo-8h-The">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="77"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ejR-cc-dJP">
@@ -78,7 +78,7 @@
                                                 <constraint firstItem="H4s-e6-w5y" firstAttribute="top" secondItem="81u-ne-2qw" secondAttribute="bottom" constant="5" id="zsi-Ps-lc9"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="288" height="77"/>
+                                        <size key="customSize" width="288" height="60"/>
                                         <connections>
                                             <outlet property="albumImageView" destination="ejR-cc-dJP" id="Aaa-UU-xgw"/>
                                             <outlet property="albumNameLabel" destination="81u-ne-2qw" id="j2q-fv-1gG"/>
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="-312"/>
+            <point key="canvasLocation" x="382.60869565217394" y="-312.05357142857139"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="Jvh-AC-JgB">

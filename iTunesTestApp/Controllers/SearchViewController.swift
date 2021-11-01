@@ -8,7 +8,7 @@ class SearchViewController: UIViewController {
     private let cellID = "albumCell"
     private let sidesSpacing = 10
     private let cellHeight = 60
-    private var results = [Results]()
+    private var results = [Album]()
     private var searchText = String()
     
     override func viewDidLoad() {

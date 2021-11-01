@@ -14,7 +14,7 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
         indicatorView.frame = albumImageView.frame
     }
     
-    func cellInit(data: Results, image: UIImage) {
+    func cellInit(data: Album, image: UIImage) {
         albumImageView.image = image
         albumNameLabel.text = data.collectionName
         artistNameLabel.text = data.artistName

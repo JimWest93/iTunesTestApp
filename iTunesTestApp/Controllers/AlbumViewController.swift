@@ -28,7 +28,7 @@ class AlbumViewController: UIViewController {
     
     private let cellID = "songCell"
     
-    var albumData: Results?
+    var albumData: Album?
     var songs = [Song]()
     
     override func viewDidLoad() {
@@ -65,8 +65,9 @@ class AlbumViewController: UIViewController {
         artistNameLabel.text = albumData?.artistName
         genreLabel.text = albumData?.primaryGenreName
         let date = inputDateFormatter.date(from: albumData?.releaseDate ?? "")
-        guard let date = date else { return }
-        yearLabel.text = outputDateFormatter.string(from: date)
+        if let date = date {
+            yearLabel.text = outputDateFormatter.string(from: date)
+        }
     }
     
     private func coverViewSetup() {

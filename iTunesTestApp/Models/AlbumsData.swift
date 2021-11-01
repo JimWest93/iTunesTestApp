@@ -1,14 +1,13 @@
 import Foundation
 
-struct AlbumData: Codable {
-    let results: [Results]
+struct AlbumsData: Codable {
+    let results: [Album]
 }
 
-struct Results: Codable {
+struct Album: Codable {
     
     let collectionID: Int?
     let artistName, collectionName : String?
-    let collectionViewURL: String?
     let artworkUrl60, artworkUrl100: String?
     let primaryGenreName: String?
     let releaseDate: String?
@@ -16,7 +15,6 @@ struct Results: Codable {
     enum CodingKeys: String, CodingKey {
         case collectionID = "collectionId"
         case artistName, collectionName
-        case collectionViewURL = "collectionViewUrl"
         case artworkUrl60, artworkUrl100, primaryGenreName, releaseDate
     }
 
