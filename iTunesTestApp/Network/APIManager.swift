@@ -30,9 +30,7 @@ class APIManager {
             
             do {
                 let albums = try JSONDecoder().decode(AlbumsData.self, from: data)
-                
-                print(albums)
-                
+                                
                 DispatchQueue.main.async {
                     complition(albums.results)
                 }

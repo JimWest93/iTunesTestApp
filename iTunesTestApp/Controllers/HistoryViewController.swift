@@ -18,7 +18,7 @@ class HistoryViewController: UIViewController {
         searchRequests = CoreDataManager.shared.searchRequestsData()
         historyTableView.reloadData()
     }
-    
+
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {

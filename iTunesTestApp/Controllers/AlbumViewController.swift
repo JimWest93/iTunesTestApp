@@ -42,7 +42,7 @@ class AlbumViewController: UIViewController {
         view.addSubview(indicatorView)
         getSongsData()
     }
-    
+
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
