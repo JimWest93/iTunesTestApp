@@ -1,9 +1,5 @@
 import UIKit
 
-protocol HistoryDelegate {
-    func updateCollection(searchRequest: String)
-}
-
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var historyTableView: UITableView!
@@ -13,10 +9,8 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         historyTableView.delegate = self
         historyTableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

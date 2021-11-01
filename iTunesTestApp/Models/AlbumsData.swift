@@ -6,11 +6,11 @@ struct AlbumsData: Codable {
 
 struct Album: Codable {
     
-    let collectionID: Int?
-    let artistName, collectionName : String?
-    let artworkUrl60, artworkUrl100: String?
-    let primaryGenreName: String?
-    let releaseDate: String?
+    let collectionID: Int
+    let artistName, collectionName : String
+    let artworkUrl60, artworkUrl100: String
+    let primaryGenreName: String
+    let releaseDate: String
 
     enum CodingKeys: String, CodingKey {
         case collectionID = "collectionId"

@@ -14,14 +14,12 @@ class AlbumViewController: UIViewController {
     
     private var inputDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         return dateFormatter
     }()
     
     private var outputDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "yyyy"
         return dateFormatter
     }()
@@ -50,12 +48,9 @@ class AlbumViewController: UIViewController {
     }
     
     private func getSongsData() {
-        APIManager.shared.fetchTracks(collectionID: albumData?.collectionID) { [weak self] songs in
-            songs.forEach { song in
-                if song.trackName != nil {
-                    self?.songs.append(song)
-                }
-            }
+        guard let id = albumData?.collectionID else { return }
+        APIManager.shared.fetchTracks(collectionID: id) { [weak self] songs in
+            self?.songs = songs
             self?.songsTableView.reloadData()
         }
     }
@@ -71,16 +66,16 @@ class AlbumViewController: UIViewController {
     }
     
     private func coverViewSetup() {
-        coverImageView.applyshadowWithCorner(containerView: containerView, cornerRadious: 10)
+        coverImageView.shadowAndRoundedCorners(containerView: containerView, cornerRadious: 10)
         indicatorView.frame = containerView.frame
-        indicatorView.center = containerView.center
         indicatorView.startAnimating()
         
-        let imageUrl = albumData?.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
-        APIManager.shared.fetchImage(imageUrl: imageUrl) { [weak self] image in
-            self?.coverImageView.image = image
-            self?.indicatorView.stopAnimating()
-            self?.indicatorView.removeFromSuperview()
+        if let imageUrl = albumData?.artworkUrl100.replacingOccurrences(of: "100x100", with: "600x600") {
+            APIManager.shared.fetchImage(imageUrl: imageUrl) { [weak self] image in
+                self?.coverImageView.image = image
+                self?.indicatorView.stopAnimating()
+                self?.indicatorView.removeFromSuperview()
+            }
         }
         
     }

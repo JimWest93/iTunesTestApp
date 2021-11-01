@@ -31,6 +31,8 @@ class APIManager {
             do {
                 let albums = try JSONDecoder().decode(AlbumsData.self, from: data)
                 
+                print(albums)
+                
                 DispatchQueue.main.async {
                     complition(albums.results)
                 }
@@ -44,11 +46,11 @@ class APIManager {
     }
     
     //Получение списка треков с альбома по ID альбома
-    func fetchTracks(collectionID: Int?, complition: @escaping ([Song]) -> ()) {
+    func fetchTracks(collectionID: Int, complition: @escaping ([Song]) -> ()) {
         
-        guard let id = collectionID else { return }
+        var songs: [Song] = []
         
-        let queryItems = [URLQueryItem(name: "id", value: String(id)),
+        let queryItems = [URLQueryItem(name: "id", value: String(collectionID)),
                           URLQueryItem(name: "attribute", value: "albumTerm"),
                           URLQueryItem(name: "entity", value: "song")]
         
@@ -65,10 +67,18 @@ class APIManager {
             guard let data = data else { return }
             
             do {
-                let albums = try JSONDecoder().decode(SongsData.self, from: data)
-                DispatchQueue.main.async {
-                    complition(albums.results)
+                let tracks = try JSONDecoder().decode(SongsData.self, from: data)
+                
+                tracks.results.forEach { song in
+                    if song.trackName != nil {
+                        songs.append(song)
+                    }
                 }
+                
+                DispatchQueue.main.async {
+                    complition(songs)
+                }
+                
             } catch let jsonError {
                 print("JSON error: ", jsonError)
             }
@@ -78,17 +88,15 @@ class APIManager {
     }
     
     //Получение и кеширование изображений
-    func fetchImage(imageUrl: String?, complition: @escaping (UIImage) -> ()) {
+    func fetchImage(imageUrl: String, complition: @escaping (UIImage) -> ()) {
         
-        guard let stringURL = imageUrl else { return }
-        
-        if let imageFromCache = self.imageCache.object(forKey: stringURL as NSString) {
+        if let imageFromCache = self.imageCache.object(forKey: imageUrl as NSString) {
             
             complition(imageFromCache)
             
         } else {
             
-            guard let url = URL(string: stringURL) else { return }
+            guard let url = URL(string: imageUrl) else { return }
             
             let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 5)
             let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
@@ -103,7 +111,7 @@ class APIManager {
                 DispatchQueue.main.async {
                     complition(image)
                 }
-                self?.imageCache.setObject(image, forKey: stringURL as NSString)
+                self?.imageCache.setObject(image, forKey: imageUrl as NSString)
                 
             }
             dataTask.resume()
